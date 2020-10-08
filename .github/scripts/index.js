@@ -56,9 +56,16 @@ const main = async () => {
     encoding: 'utf-8'
   })
 
+  const date = new Date().toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
   const outputMarkdown = template.render(templateStr , {
     repos: reposRes,
-    stat: statStr
+    stat: statStr,
+    date
   });
 
   fs.writeFileSync(readmePath, outputMarkdown)
