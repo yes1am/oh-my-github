@@ -38,3 +38,4 @@ jspm_packages
 # 自定义部分
 .vscode
 package-lock.json
+*.rest
