@@ -14,8 +14,8 @@ jobs:
       - uses: actions/setup-node@v1
       - name: Create local changes
         run: |
-          node ./.github/scripts/index.js ${{ secrets.TOKEN }}
           npm install
+          node ./.github/scripts/index.js ${{ secrets.TOKEN }}
       - name: Commit files
         run: |
           git config --local user.email "songjp1996@gmail.com"
