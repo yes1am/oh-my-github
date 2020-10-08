@@ -1,0 +1,26 @@
+name: Generate README
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      if: "!contains(github.event.head_commit.message, 'skip ci')"
+      - uses: actions/checkout@v2
+      with:
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+      - uses: actions/setup-node@v1
+      - name: Create local changes
+        run: node ./.github/scripts/index.js
+      - name: Commit files
+        run: |
+          git config --local user.email "songjp1996@gmail.com"
+          git config --local user.name "songjp"
+          git add .
+          git commit -m "[skip ci] UPDATE README"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TOKEN }}
