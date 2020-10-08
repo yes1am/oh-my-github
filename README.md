@@ -16,6 +16,7 @@ Code For Fun
 <details>
   <summary>
     <strong>👆 👉 GitHub repositories. 👇<strong>
+		&nbsp;<span style="color:#6a737d; font-size:12px;">Update At Thursday, October 8, 2020</span>
   </summary>
   <br>
 
