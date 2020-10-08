@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-fs.writeFileSync(path.resolve(__dirname, '../../README.md', '123'))
+const readmePath = path.resolve(__dirname, '../../README.md');
+
+fs.writeFileSync(readmePath, '123')
 
 console.log('成功');
