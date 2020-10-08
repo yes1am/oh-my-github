@@ -3,6 +3,6 @@ const path = require('path');
 
 const readmePath = path.resolve(__dirname, '../../README.md');
 
-fs.writeFileSync(readmePath, '123')
+fs.writeFileSync(readmePath, '456')
 
 console.log('成功');
