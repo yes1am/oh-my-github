@@ -12,7 +12,7 @@ if(!token) {
 }
 const statPath = path.resolve(__dirname, '../../stat.md');
 const readmePath = path.resolve(__dirname, '../../README.md');
-const templatePath = path.resolve(__dirname, '../../repos.html');
+const templatePath = path.resolve(__dirname, '../../repos.md');
 
 const main = async () => {
   const statStr = fs.readFileSync(statPath, {
@@ -45,6 +45,13 @@ const main = async () => {
   })
   // 降序
   reposRes = reposRes.sort((a, b) => b.star - a.star);
+  // 格式化 star
+  reposRes.forEach(i => {
+    if(!i.star) {
+      i.star = '-'
+    }
+  })
+
   const templateStr = fs.readFileSync(templatePath, {
     encoding: 'utf-8'
   })
